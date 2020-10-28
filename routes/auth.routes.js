@@ -18,6 +18,7 @@ router.post(
     ],
     async (req, res) => {
     try {
+        console.log('Body: ', req.body)
         //валидация полей при регистрации
         const errors = validationResult(req)
 

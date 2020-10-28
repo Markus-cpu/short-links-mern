@@ -1,0 +1,29 @@
+.card-title {
+    font-weight: bolder !important;
+    font-size: 2.5rem !important;
+}
+.btn-style {
+    margin-right: 10px;
+}
+.orange-input {
+    border-bottom: 1px solid white !important;
+    box-shadow: 0 1px 0 0 white !important;
+}
+.orange-input:focus {
+    border-bottom: 1px solid orange !important;
+    box-shadow: 0 1px 0 0 orange !important;
+}
+.input-field > label {
+    color: white !important;
+    font-weight: bolder;
+}
+input.orange-input:focus + label {
+    color: orange !important;
+    font-weight: bolder;
+}
+.form-field {
+    padding-top: 10px;
+}
+.card-action > button {
+    font-weight: bolder;
+}
