@@ -1,13 +1,21 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./AuthPage.css"
 import {useHttp} from "../hooks/http.hook";
+import {useMessage} from "../hooks/message.hook";
 
 const AuthPage = () => {
-    const { loading, request } = useHttp()
+    const message = useMessage()
+    const { loading, request, error, clearError } = useHttp()
     const [form, setForm] = useState({
         email: '',
         password: ''
     })
+
+    useEffect(() => {
+        console.log('Error: ', error)
+        message(error)
+        clearError()
+    }, [error, message, clearError])
 
     const changeHandler = (event) => {
         event.preventDefault()
@@ -17,7 +25,7 @@ const AuthPage = () => {
     const registerHandler = async () => {
         try {
             const data = await request('/api/auth/register', 'POST', {...form})
-            console.log('Data', data)
+            message(data.message)
         } catch (e) {}
     }
     return (

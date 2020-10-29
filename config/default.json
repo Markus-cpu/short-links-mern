@@ -6,5 +6,5 @@
   },
   "port": "5000",
   "jwtSecret": "markus cpu",
-  "mongoUri": "mongodb+srv://Markus:120382mark@cluster0.gl10z.mongodb.net/app?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://Markus:120382mark@cluster0.eyf4u.mongodb.net/?retryWrites=true&w=majority"
 }
