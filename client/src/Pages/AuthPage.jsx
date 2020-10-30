@@ -8,7 +8,8 @@ const AuthPage = () => {
     const { loading, request, error, clearError } = useHttp()
     const [form, setForm] = useState({
         email: '',
-        password: ''
+        password: '',
+        credentials: 'include'
     })
 
     useEffect(() => {
@@ -28,6 +29,14 @@ const AuthPage = () => {
             message(data.message)
         } catch (e) {}
     }
+
+    const loginHandler = async () => {
+        try {
+            const data = await request('/api/auth/login', 'POST', {...form})
+            message(data.message)
+        } catch (e) {}
+    }
+
     return (
         <div className="row">
             <div className="col s6 offset-s3">
@@ -67,6 +76,7 @@ const AuthPage = () => {
                         <button
                             className="btn btn-style yellow darken-4"
                             disabled={loading}
+                            onClick={loginHandler}
                         >
                             Войти
                         </button>
@@ -79,7 +89,6 @@ const AuthPage = () => {
                         >
                             Регистрация
                         </button>
-
                     </div>
                 </div>
             </div>
