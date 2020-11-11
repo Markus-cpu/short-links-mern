@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const config = require('config')
 
 const router = Router()
+
 //  /api/auth/register
 router.post(
     '/register',
@@ -16,6 +17,7 @@ router.post(
       check('email', 'Неправильный email').isEmail(),
       check('password', 'Минимальная длина 6 символов').isLength({min: 6})
     ],
+
     async (req, res) => {
     try {
         console.log('Body: ', req.body)
