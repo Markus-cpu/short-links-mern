@@ -29,3 +29,10 @@ input.orange-input:focus + label {
 .card-action > button {
     font-weight: bolder;
 }
+.text-center {
+    text-align: center;
+}
+.row__title {
+    color: darkorange;
+    font-weight: bold;
+}

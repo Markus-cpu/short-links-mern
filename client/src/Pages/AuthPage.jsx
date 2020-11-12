@@ -38,15 +38,15 @@ const AuthPage = () => {
 
     return (
         <div className="row">
-            <div className="col s6 offset-s3">
-                <h1>Сокращая Ссылку!</h1>
+            <div className="col s6 offset-s3 text-center">
+                <h3 className="row__title">MERN APP LINKS</h3>
                 <div className="card blue-grey darken-1">
                     <div className="card-content white-text">
                         <span className="card-title">Авторизация</span>
                         <div className="form-field">
                             <div className="input-field">
                                 <input
-                                    placeholder="Input email"
+                                    placeholder=" "
                                     id="email"
                                     type="email"
                                     name="email"
@@ -57,7 +57,7 @@ const AuthPage = () => {
                             </div>
                             <div className="input-field">
                                 <input
-                                    placeholder="Input password"
+                                    placeholder=" "
                                     id="password"
                                     type="password"
                                     name="password"

@@ -15,7 +15,7 @@ router.post(
     '/register',
     [
       check('email', 'Неправильный email').isEmail(),
-      check('password', 'Минимальная длина 6 символов').isLength({min: 6})
+      check('password', 'Минимальная длина пароля 6 символов').isLength({min: 6})
     ],
 
     async (req, res) => {
@@ -23,7 +23,7 @@ router.post(
         console.log('Body: ', req.body)
         //валидация полей при регистрации
         const errors = validationResult(req)
-
+        //если обьект errors не пустой т.е
         if (!errors.isEmpty()) {
             return res.status(400).json({
                 errors: errors.array(),
@@ -34,10 +34,10 @@ router.post(
         const {email, password} = req.body
         const candidate = await User.findOne({ email })
         if (candidate) {
-            res.status(400).json({message: 'Такой пользователь существует'})
+            return res.status(400).json({message: 'Такой пользователь существует'})
         }
         // хэширование пароля, защита от взлома
-        const hashedPassword = await bcrypt.hash(password, 45)
+        const hashedPassword = await bcrypt.hash(password, 12)
         const user = new User({ email, password: hashedPassword })
         // после валидации сохраняем пользователя
         await user.save()
@@ -80,15 +80,15 @@ router.post(
         // проверка совпадения пароля
         const isMatch = await bcrypt.compare(password, user.password)
         if (!isMatch) {
-            return req.status(500).json({ message: 'Неверный пароль, попробуйте снова' })
+            return res.status(400).json({ message: 'Неверный пароль, попробуйте снова' })
         }
 
         const token = jwt.sign(
-            { userId: user.id },
+            { userId: user.uid },
             config.get('jwtSecret'),
             { expiresIn: '1h' }
         )
-        await res.json({ token, userId: user.id })
+        res.json({ token, userId: user.uid })
 
     } catch (e) {
             res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })

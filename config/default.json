@@ -5,7 +5,7 @@
     
   },
   "port": 5000,
-  "jwtSecret": "Marat",
+  "jwtSecret": "Marat mern app",
   "mongoUri": "mongodb+srv://Markus:120382mark@cluster0.eyf4u.mongodb.net/link?yWrites=true&w=majority"
 }
 
