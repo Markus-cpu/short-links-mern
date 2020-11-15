@@ -1,15 +1,9 @@
 {
   "name": "config",
   "version": "1.0.0",
-  "dependencies": {
-    
-  },
+  "dependencies": {},
   "port": 5000,
   "jwtSecret": "Marat mern app",
-  "mongoUri": "mongodb+srv://Markus:120382mr@cluster0.eahu5.mongodb.net/linksDB?retryWrites=true&w=majority"
+  "mongoUri": "mongodb+srv://Markus:120382mr@cluster0.eahu5.mongodb.net/linksDB?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000"
 }
-
-
-
-
-
