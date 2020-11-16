@@ -7,11 +7,12 @@ const app = express()
 
 app.use(express.json({ extended: true }))
 
-// Middleweare
+// Middleware
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/link', require('./routes/link.routes'))
+app.use('/t', require('./routes/redirect.routes'))
 
-app.use(cors())
+app.use(cors({ origin: true }))
 
 // Связываемся с базой данных, и после запускаем наш локальный сервер
 const PORT = config.get('port') || 5000

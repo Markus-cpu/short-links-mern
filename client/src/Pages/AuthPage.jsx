@@ -55,6 +55,7 @@ const AuthPage = () => {
                                     id="email"
                                     type="email"
                                     name="email"
+                                    value={form.email}
                                     className="orange-input"
                                     onChange={changeHandler}
                                 />
@@ -66,12 +67,12 @@ const AuthPage = () => {
                                     id="password"
                                     type="password"
                                     name="password"
+                                    value={form.password}
                                     className="orange-input"
                                     onChange={changeHandler}
                                 />
                                 <label htmlFor="password">Password</label>
                             </div>
-
                         </div>
                     </div>
                     <div className="card-action">

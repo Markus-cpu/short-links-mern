@@ -10,13 +10,13 @@ module.exports = (req, res, next) => {
     const token = req.headers.authtorization.split(' ')[1]
 
     if (!token) {
-      return res.status(401).json({ message: 'No authtotication' })
+      return res.status(401).json({ message: 'No authorization...' })
     }
 
     const decoded = jwt.verify(token, config.get('jwtSecret'))
     req.user = decoded
     next()
   } catch (e) {
-    res.status(401).json({ message: 'No authtotication' })
+    res.status(401).json({ message: 'No authorization...' })
   }
 }
