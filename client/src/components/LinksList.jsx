@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 const LinksList = ({ links }) => {
     if (!links.length) {
-        return <h2 className="center">Links not yet!</h2>
+        return <h4 className="center">Links not yet!</h4>
     }
     return (
         <>
@@ -11,9 +11,9 @@ const LinksList = ({ links }) => {
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Original:</th>
-                    <th>Abbreviated:</th>
-                    <th>Open:</th>
+                    <th>Original</th>
+                    <th>Abbreviated</th>
+                    <th>Open</th>
                 </tr>
                 </thead>
                 <tbody>

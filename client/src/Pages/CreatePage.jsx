@@ -17,19 +17,15 @@ const CreatePage = () => {
         if (event.key === 'Enter') {
             try {
                 const data = await request('/api/link/generate', 'POST', {from: link}, {
-                    Authorization: `Bearer ${auth.token}`,
-                    withCredentials: true
+                    Authorization: `Bearer ${auth.token}`
                 })
-                console.log(data)
-                history(`/detail/${data.link._id}`)
-            } catch (e) {
-
-            }
+                history.push(`/details/${data.link._id}`)
+            } catch (e) {}
         }
     }
     return (
         <div className="row">
-            <div className="col s8 offset-s2" style={{ padding: '2rem' }}>
+            <div className="col s8 offset-s2" style={{ paddingTop: '2rem' }}>
                 <div className="input-field">
                     <input
                         placeholder=" "

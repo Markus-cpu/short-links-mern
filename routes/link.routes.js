@@ -1,4 +1,4 @@
-const Router = require('express')
+const {Router} = require('express')
 const Link = require('../models/Link')
 const auth = require('../middleware/auth.middleware')
 const config = require('config')
